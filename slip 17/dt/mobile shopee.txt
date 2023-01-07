@@ -1,0 +1,24 @@
+> db.custome.insert({cname:"mukesh",modelname:"samsung 
+j6",amount:20000}) WriteResult({ "nInserted" : 1 })
+> db.custome.insert({cname:"abhijeet",modelname:"samsung 
+j6",amount:20060}) WriteResult({ "nInserted" : 1 }) 
+> db.custome.insert({cname:"manasi",modelname:"iphone 7+",amount:30060}) 
+WriteResult({ "nInserted" : 1 })
+> db.custome.insert({cname:"manisha",modelname:"iphone 
+7+",amount:30070}) WriteResult({ "nInserted" : 1 }) 
+> db.custome.insert({cname:"dipak",modelname:"iphone 7+",amount:30800}) 
+WriteResult({ "nInserted" : 1 }) 
+>db.shopping.insert({brandname:"samsung",rate:6,model:[{mname:"s40",ram:"
+3GB",rom:"32GB",rate:4},{mname:"j6",ram:"4GB",rom:"32GB",rate:7},{mna
+me:"j7",ram:"6GB",rom:"64 GB",rate:6}]})
+WriteResult({ "nInserted" : 1 }) 
+>db.shopping.insert({brandname:"vivo",rate:8,model:[{mname:"Y55",ram:"3G
+B",rom:"32GB",rate:6},{mname:"Ys5",ram:"4 
+GB",rom:"32GB",rate:4},{mname:"YYY",ram:"6GB",rom:"64G B",rate:6}]}) 
+WriteResult({ "nInserted" : 1 })
+4)
+a) > db.shopping.find({"model.ram":"3GB","model.rom":"32GB"}) 
+b) > db.custome.find({modelname:"samsung j6"}) 
+c) > 
+db.shopping.aggregate([{"$sort":{"rate":1}},{"$limit":1},{$group:{_id:"$brand
+name"}}]) d) > db.custome.find().sort( { "cname": 1 } )

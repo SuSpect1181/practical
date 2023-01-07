@@ -1,0 +1,46 @@
+create (e:Country(name: "India") return c;
+
+create (c:Country name: "USA")) return c;
+create le:Country name: "Israil")) return c
+
+create (c:Country(name: "Arab")) return c;
+
+create (e:Country name: "Europe") return c;
+
+create (s:States{name: "Maharashtra"}) return s;
+ create (s:States {name: "Punjab"}) return s; 
+create (s:States (name: "California") return s;
+
+create (p: Product {name: "Wheat",production: "75%"}) return p;
+
+create (p: Product (name: "011", production: "90"); return pa
+
+create (p: Product iname: "Sugar",production: "50%")) return p create (p: Product (name: "GroundNuts",production: "50%") return p;
+
+create (p: Product (name: "Cotton", production: "501") return pi
+
+match (e:Country), (s:States), (p: Product; where c.name "india" and
+
+s.name "Maharashtra" and p.name "Wheat" create (c)-[:has_States]->(s)-[:Produces]->(p) return c,s,p;
+match (e:Country), (s:States), (p: Product) where c.name="USA" and
+
+s.name="California" and
+
+p.name="oil" create (c)-1:has States)->()-1: Produces1->(p) return e,s,p:
+
+match (c:Country), (s:States), (p: Product) where c.name="India" and
+
+s.name="Maharashtra" and p.name="Oil" create (c)-[has_States]->1a1-1: Produces)->tpt return cys.p match (e:Country), (s: States), (p: Product where c.name "India" and
+
+s.name="Maharashtra" and p.name="GroundNuts" create (c)-[:has_States]-> (8)-1: Produces]->(p) return
+
+match (c:Country), (s: States), (p: Product) where c.name="India" and s.name "Punjab" and p.name="Sugar" create (c)-[has_States]->(s)-1: Produces]->(p) return c,s,p:
+
+Queries
+
+1) List the countries that export oil match (c:Country), (p: Product) where p.name="Oil" and (e)-[:exports]->(up)
+
+return c.name; 
+2) List the products produced in "Maharashtra" match [s:States), (p: Product) where s.name="Maharashtra" and (s)-[:Froduces]-
+
+->(p) return p.name;

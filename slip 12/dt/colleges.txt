@@ -1,0 +1,31 @@
+use uni
+switched to db uni
+> db.createCollection("collegeee")
+{ "ok" : 1 }
+>db.collegeee.insert({_id:1,"collegename":"sarhad",course:["arts","science","co
+mp"],professor:[{name:"abc",age:45},{name:"pqr",age:30}]})
+WriteResult({ "nInserted" : 1 })
+>db.collegeee.insert({_id:2,"collegename":"abhinav",course:["arts","science","c
+omp"],professor:[{name:"abc",age:45},{name:"qr",age:30}]})
+WriteResult({ "nInserted" : 1 })
+>db.collegeee.insert({_id:3,"collegename":"sp",course:["science","comp"],prof
+essor:[{name:"bc",age:45},{name:"qr",age:30}]})
+WriteResult({ "nInserted" : 1 })
+>db.collegeee.insert({_id:4,"collegename":"dsp",course:["science","comp"],pro
+fessor:[{name:"abc",age:45},{name:"qr",age:30}]})
+WriteResult({ "nInserted" : 1 })
+>db.collegeee.insert({_id:5,"collegename":"dspe",course:["arts","science","com
+p"],professor:[{name:"aabc",age:45},{name:"wqr",age:50}]})
+WriteResult({ "nInserted" : 1 })
+2)> db.collegeee.find({professor:{$elemMatch:{age:{$gt:40}}}})
+{ "_id" : 1, "collegename" : "sarhad", "course" : [ "arts", "science", "comp" ], 
+"professor" : [ { "name" : "abc", "age" : 45 }, { "name" : "pqr", "age" : 30 } ] }
+{ "_id" : 2, "collegename" : "abhinav", "course" : [ "arts", "science", "comp" ], 
+"professor" : [ { "name" : "abc", "age" : 45 }, { "name" : "qr", "age" : 30 } ] }
+{ "_id" : 3, "collegename" : "sp", "course" : [ "science", "comp" ], "professor" : 
+[ { "name" : "bc", "age" : 45 }, { "name" : "qr", "age" : 30 } ] }
+{ "_id" : 4, "collegename" : "dsp", "course" : [ "science", "comp" ], "professor" : 
+[ { "name" : "abc", "age" : 45 }, { "name" : "qr", "age" : 30 } ] }
+{ "_id" : 5, "collegename" : "dspe", "course" : [ "arts", "science", "comp" ], 
+"professor" : [ { "name" : "aabc", "age" : 45 }, { "name" : "wqr", "age" : 50 } ] }
+1)> db.collegeee.find({course:"arts"}).pretty()

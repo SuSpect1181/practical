@@ -1,0 +1,72 @@
+Creation of Graph Model
+>Create(mamul:dairy{brand:"amul",pop_perc:96,state:"maharashtra"}),(mgo:da
+iry{brand:"go",pop_perc:80,state:"maharashtra"}),(mbritania:dairy{brand:"brita
+nia",pop_perc:55,state:"maharashtra"}),(mgokul:dairy{brand:"gokul",pop_perc:
+96,state:"maharashtra"}),(gamul:dairy{brand:"amul",pop_perc:98,state:"gujrat"
+}),(ggo:dairy{brand:"go",pop_perc:80,state:"gujrat"}),(gbritania:dairy{brand:"b
+ritania",pop_perc:55,state:"gujrat"}),(ggokul:dairy{brand:"gokul",pop_perc:56,
+state:"gujrat"})
+Create milk product
+>Create(p1_milk:product{pname:"milk",con_type:"LF"}),(p2_milk:product{pn
+ame:"milk",con_type:"MF"}),(p3_milk:product{pname:"milk",con_type:"HF"}
+)
+Create cheese product
+>CREATE(p1_cheese:product{pname:"cheese",con_type:"LF"}),(p2_cheese:pr
+oduct{pname:"cheese",con_type:"MF"}),(p3_cheese:product{pname:"cheese",c
+on_type:"HF"})
+Create brands label them dairyC
+>create(amul:dairy{brand:"amul",Syear:1960}),(go:dairy{brand:"go",Syear:197
+0}),(britania:dairy{brand:"britania",Syear:1980}),(gokul:dairy{brand:"gokul",S
+year:1990})
+Create states
+>CREATE (maha:state{name:"maharashtra"}),(guj:state{name:"gujrat"})
+Create relation between dairy and state
+>match (amul:dairy),(maha:state) where amul.brand="amul" and maha.name= 
+"maharashtra" create (amul)-[r1:SALES_IN{pop_perc:85}]-> (maha)
+>match (amul:dairy),(guj:state) where amul.brand="amul" and guj.name= 
+"gujrat" create (amul)-[r1:SALES_IN{pop_perc:95}]-> (guj)
+>match (go:dairy),(maha:state) where go.brand="go" and maha.name= 
+"maharashtra" create (go)-[r1:SALES_IN{pop_perc:45}]-> (maha)
+>match (go:dairy),(guj:state) where go.brand="go" and guj.name= "gujrat" 
+create (go)-[r1:SALES_IN{pop_perc:75}]-> (guj)
+>match (britania:dairy),(maha:state) where britania.brand="britania" and 
+maha.name= "maharashtra" create (britania)-[r1:SALES_IN{pop_perc:65}]->
+(maha)
+>match (gokul:dairy),(maha:state) where gokul.brand="gokul" and maha.name= 
+"maharashtra" create (gokul)-[r1:SALES_IN{pop_perc:65}]-> (maha)
+Create milk Products
+>CREATE(p1_milk:product:milk{name:"LFmilk",con_type:"LF"}),(p2_milk:p
+roduct:milk{name:"MFmilk",con_type:"MF"}),(p3_milk:product:milk{name:"
+HFmilk",con_type:"HF"})
+>CREATE (p_cheese:product:cheese{name:"cheese"})
+>CREATE (p_butter:product:butter{name:"butter"})
+create relation between dairy and products
+>match (a:dairy),(b:milk) where a.brand="amul" and b.name= "LFmilk" create 
+(a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:milk) where a.brand="amul" and b.name= "MFmilk" create 
+(a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:milk) where a.brand="amul" and b.name= "HFmilk" create 
+(a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:milk) where a.brand="go" and b.name= "LFmilk" create 
+(a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:milk) where a.brand="britania" and b.name= "LFmilk" 
+create (a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:cheese) where a.brand="amul" and b.name= "cheese" create 
+(a)-[r1:MANUFACTURE]-> (b)
+>match (a:dairy),(b:butter) where a.brand="go" and b.name= "butter" create (a)-
+[r1:MANUFACTURE]-> (b)
+a) List the names of different brands considered in your graph.
+>match(n:dairy) return n.brand
+b)List the brands that are highly popular in Maharashtra
+>match (a:dairy)-[r1:SALES_IN]-> (b:state) 
+WHERE r1.pop_perc>=70 and b.name="maharashtra" 
+ RETURN a.brand
+c)List the popular cheese brands I Gujrath
+>MATCH (a:dairy)-[r1:SALES_IN]-> (b:state) , (a:dairy)-
+[r2:MANUFACTURE]-> (c:cheese)
+WHERE b.name=“gujrat" 
+ RETURN a.brand
+d)List the brands manufacturing “low” and Fact content milk
+>MATCH (a:dairy)-[r1:MANUFACTURE]-> (b:milk) WHERE 
+b.name="LFmilk" 
+RETURN a.brand

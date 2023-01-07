@@ -1,0 +1,20 @@
+create (h: Hotel {name: "Marriotte", location: "Camp"}) return h;
+
+create (h:Hotel name: "Blue Diamond", location: "KP Road" return hi create th: Hotel (name: "Radison", location: "Kharadi")) return h;
+
+create (f:Facility {name: "Lodging", rating:"4 star"}) return f; 
+
+create (f:Facility (name: "Restaurant ", rating: "4 star"); return f create if:Facility (name: "Lodging Restaurant ", rating:"5 star"}} return 1;
+
+match (h:Hotel), (f:Facility) where h.name="Blue Diamond" and f.name="Lodging Restaurant" create (h)-[:Has]->(f) return h, f; 
+
+match th:Hotel), (:Facility) where h.name="Radison" and f.name="Restaurant" create (h)-[:Has]->(f) return h, f; match (h:Hotel), (f: Facility) where h.name="Marriotte" and f.name="Lodging
+
+Restaurant" create (h)-[:Has]->(f) return h, f; Queries 
+1)List the names of hotels in Camp area.
+
+match (h:Hotel) where h.location "Camp" return h.name;
+
+ 2) List the names of hotels having both lodging and restaurant facility 
+
+match (h: Hotel), (f:Facility) where f.name="Lodging Restaurant" and (h)-[:Has)->(f) return h.name;

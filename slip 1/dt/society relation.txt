@@ -1,0 +1,57 @@
+: According to the question consider three nodes with labels
+1. person(label)
+2. place(label)
+3. project(label)
+To create node with the label and properties : 
+create (ajay:person{name:"ajay",place : "pune",project:"finance",age:45}) 
+return ajay
+Explanation : we can crete the node with keyword CREATE. here ajay is a node 
+name with label person and having the properties like name,place, project and 
+age and i am going to return node ajay with RETURN keyword.
+like wise i have created some other nodes 
+create (anil:person{name:"anil",place : "mumbai",project:"inventory",age:25})
+return anil
+create (akash:person{name:"akash",place : "kolhapur",project:"sales",age:35}) 
+return akash
+create (amar:person{name:"amar",place : "pune",project:"sales",age:35}) return 
+amar
+create (alankar:person{name:"alankar",place : "pune",project:"sales",age:35}) 
+return alankar
+create (sunil:person{name:"sunil",place : "mumbai",project:"sales",age:22}) 
+return sunil
+create (sujit:person{name:"sujit",place : "mumbai",project:"finance",age:55}) 
+return sujit
+create (soham:person{name:"soham",place 
+:"mumbai",project:"finance",age:65}) return soham
+To See the Graph of all nodes which we have created using the MATCH and 
+RETURN keyword
+match (n) return (n)
+Like wise we are going to create other nodes with label project
+create (finance:project{name:"finance"}) return finance
+create (inventory:project{name:"inventory"}) return inventory
+create (sales:project{name:"sales"}) return sales
+match (n) return (n)
+Like wise we are going to create other nodes with label place
+create (pune:place{name:"pune"}) return pune
+create (mumbai:place{name:"mumbai"}) return mumbai
+create (kolhapur:place{name:"kolhapur"}) return kolhapur
+match (n) return (n)
+Now we have to crete the relation between the nodes that we have created
+match(a:person),(b:project) where a.name="soham" and b.name="inventory" 
+create (a)-[r:works_in]-> (b) return a,b,r
+here a,b is the variable name and using the create (a)-[r:works_in]-> (b) we are 
+goin to create the relation between nodes soham and inventory and then to see 
+the result use the RETURN 
+like wise
+match(a:person),(c:place) where a.name="soham" and c.name="pune" create 
+(a)-[r:lives_in]-> (c) return a,c,r
+create relation between all the nodes like this only.
+Queries:
+1. to return all the nodes having label person
+match (p:person) return (p)
+2. List the names of people who are parents.
+match (p1:person)-[r:parent_of]-> (p2:person) return p1,p2,r
+3. List the names of people working on ‘Finance‘ project
+match (p:person ) where p.project="finance" return p
+4. List the names of people having most friends.
+match (p1:person)-[r:friend_of]-> (p2:person) return p1,p2,r

@@ -1,0 +1,29 @@
+>db.turisum.insert({name:"veenaword",rate:9,package:[{pname:"shillong",cost:
+10000},{pname:"gujart",cost:7000},{pname:"karnataka",cost:6000}]})
+>db.turisum.insert({name:"rohit",rate:7,package:[{pname:"shillong",cost:10000
+},{pname:"rujan",cost:7000}]}) 
+> db.tour.insert({sourc:"john",destination:"shillong",toerisumName:"veena 
+word",tourisumrate:8000,expense:20000,year:2018,customer:[{cname:"mukesh
+",city:"pune"},{cname:"abhijeet 
+sangita",city:"baramati"},{cname:"manisha",city:"15no"},{cna 
+me:"manasi",city:"latur"}]})
+>db.tour.insert({sourc:"john",destination:"karnataka",toerisumName:"veenawor
+d",tourisumrate:80090,expense:20900,year:2017,customer:[{cname:"mukesh",c
+ity:"pune"},{cname:"abhijeetsangita",city:"baramati"},{cname:"manisha",city:"
+15no"},{cname:"manasi",city:"latur"}]}) 
+>db.tour.insert({sourc:"john",destination:"rajasthan",toerisumName:"rohit",tour
+isumrate:6000,expense:30400,year:2019,c 
+ustomer:[{cname:"mukesh",city:"pune"},{cname:"abhijeet 
+sangita",city:"baramati"},{cname:"manisha",city:"15no"},{cna 
+me:"manasi",city:"latur"}]})
+>db.tour.insert({sourc:"john",destination:"taj",toerisumName:"rohit",tourisumra
+te:60090,expense:10400,year:2016,custo 
+mer:[{cname:"mukesh",city:"pune"},{cname:"abhijeet 
+sangita",city:"baramati"},{cname:"manisha",city:"15no"},{cna 
+me:"manasi",city:"latur"}]}) 
+4)
+a) >db.turisum.find({name:"veena word"}).pretty()
+b) >db.turisum.find({}).sort({"rate":-1}).limit(1) 
+c)>db.tour.aggregate([{"$sort":{"year":1}},{"$limit":3},{$group:{_id:null,"cou
+nt":{"$sum":"$expense"}}}]) 
+d) > db.tour.find({destination:"shillong"})

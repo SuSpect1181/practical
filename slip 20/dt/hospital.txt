@@ -1,0 +1,16 @@
+1)> db.Hospital.insert({Hno:1,Hname:"AAA",Specialization:["Pedi 
+atric","Gynaec","Orthopaedic"],People:[{Pname:"PQR",Ratin 
+g:4},{Pname:"SDE",Rating:5}],Doctor:[{"Dname" : "WWW", "Visit" : 
+"Sunday"}]}) WriteResult({ "nInserted" : 1 }) 
+2)> db.Hospital.insert({Hno:2,Hname:"BBB",Specialization:["Gyna 
+ec","Orthopaedic"],People:[{Pname:"POP",Rating:2},{Pname: 
+"SDE",Rating:3}],Doctor:[{"Dname":"XXX",Visit:"Monday"}]}) 
+WriteResult({ "nInserted" : 1 }) 
+3)> db.Hospital.insert({Hno:3,Hname:"CCC",Specialization:["Gyna 
+ec","Orthopaedic","Pediatric"],People:[{Pname:"KLO",Rating:3},{Pname:"LP
+O",Rating:3}],Doctor:[{"Dname" : "XXX","Visit": "Tuesday"}]}) 
+WriteResult({ "nInserted" : 1 }) 
+4) > db.Hospital.find({Specialization:"Pediatric"}) b)> 
+db.Hospital.find({Hname:"CCC","Doctor.Visit":"Tuesday"}) c)> 
+db.Hospital.find({Specialization:{$not:{$size:1}},"Doctor.Dna me":"XXX"}) 
+d) > db.Hospital.find({"People.Rating":{ $gt: 3 },Hname:"AAA" })

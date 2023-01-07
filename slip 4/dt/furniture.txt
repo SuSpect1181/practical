@@ -1,0 +1,16 @@
+create(f:Furniture {name:"Sofa Set", color: "white"}) return f;
+
+create s:Staff name: "Satish")) return s;
+
+match(s:Staff), (f: Furniture) where s.name="Satish" and f.name="Sofa Set" create (g)-[:Handled]->(f) return s,t; 
+
+create (c:Customer {name: "Priyanshu"}) return c;
+
+create (c:Customer{name: "Sahil"}) return c;
+
+match (c:Customer), (f: Furniture) where c.name="Sahil" and f.name="Sofa Set" create (c)-1: [Enquired_about]->(f) return c,f; 
+
+1) List the types of furniture's available in white colour.
+ match(f:Furniture) where f.color="white" return fnamel;
+2) List the sections handled by Mr. Satish. 
+match(f:Furniture), (s: Staff) where s.name="Satish" and (s)-[:Handled]->(f) return f.name;_

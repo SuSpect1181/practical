@@ -1,0 +1,28 @@
+> db.product.insert({name:"robot",price:12000})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({name:"toycar",price:2000})
+WriteResult({ "nInserted" : 1 }) 
+> db.product.insert({name:"cricketset",price:9000})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({name:"studymaterial",price:19000})
+WriteResult({ "nInserted" : 1 })
+>db.order.insert({orderno:3736,custName:"arunkumar",product:{productName:
+"toycar",price:20000},order_date:"12/2/2019",stetus:"processed",Totalbill:2039
+,invoice:{invoiceNO:67564,bill:2039,date:"17/2/2019"}}) 
+WriteResult({ "nInserted" : 1 })
+>db.order.insert({orderno:3737,custName:"arunkumar",product:{productName:
+"robot",price:12000},order_date:"11/3/2019",stetus:"processed",Totalbill:12800
+,invoice:{invoiceNO:67574,bill:12039,date:"17/3/2019"}})
+WriteResult({ "nInserted" : 1 }) 
+>db.order.insert({orderno:3738,custName:"arunkumar",product:{productName:
+"cricketset",price:9000},order _date:"15/5/2019",stetus:"in 
+process",Totalbill:9050}) 
+WriteResult({ "nInserted" : 1 })
+>db.order.insert({orderno:3739,custName:"mukeshpatil",product:{productNam
+e:"studentmaterial",price:19000} ,order_date:"15/8/2019",stetus:"in 
+process",Totalbill:19080}) WriteResult({ "nInserted" : 1 })
+4)
+a)> db.product.find().pretty()
+b) > db.order.find({Totalbill:{$lt:10000}})
+c) > db.order.find({stetus:"in process"})
+d) >db.order.find({custName:"arun kumar",stetus:"processed"})

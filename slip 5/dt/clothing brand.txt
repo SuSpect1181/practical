@@ -1,0 +1,44 @@
+create (s:Section {name: "Male"}) return s;
+
+create (s:Section [name:"Female" return s
+
+create (s:Section (name: "Kids")) return y
+
+create (a:Apparel {name: "Kurta"}) return a;
+
+create la: Apparel (name: "Saree" return a
+
+create (a:Apparel (name: "T-Shirts")) return a;
+
+create (a:Apparel (name: "Jackets")) return a;
+
+create (a:Apparel (name: "Frock") return a;
+
+create (a:Apparel (name: "Shirt")) return a
+
+create (s:Size {name: "S"}) return s; 
+
+create (s:Size (name: "M")) return s
+
+create (s:Size (name: "L")) return s;
+
+match(s:Section), (a:Apparel) where s.name="Female" and a.name="Kurta" create (s)-[:Has]->(a) return s,a; 
+
+match(s:Section), (a:Apparel) where s.name="Female" and a.name="Sares" create (s) :Has)->(a) return 8,a; match(s:Section), (a:Apparel) where s.name="Male" ata anams "Jackets crests (s) [Has]->(a) return s,a; match(s:Section), (a:Apparell where s.name="Male" and a.name="Jackets" create (s) [Has]->(a) return s,a; match (s: Section), (a:Apparel) where s.name="Kids" and a.name="Frock" create (s)-[:Has]->(a) return s,a;
+
+create (ss: SalesStaff {name: "Smita"}) return ss;
+
+create (ss:SalesStaff (name: "Geeta")) return ss; create (ss:Sales Staff (name: "Seeta") return ss;
+
+create (ss: SalesStaff (name: "Raman")) return ss;
+
+match(ss: SalesStaff), (s: Section) where s.name="Kids" and ss.name="Smita" create (ss)-[:Work_in]->(s) return ss,s; 
+
+match (ss: SalesStaff), (s: Section) where s.names"Female" and ss.name="Seeta" create (ss)-[:Work_in]->(s) return s9,5; match (ss: SalesStaff), (s: Section) where s.name "Male" and ss.name="Seeta" create (ss)-[:Work_in]->(s) return ss,s: match(ss: SalesStaff), (s: Section) where s.name="Kids" and ss.name="Raman" create (ss)-[:Work_in]->(s) return 99,5;
+
+Queries
+1) List the different apparels type in female section
+
+match(s:Section), (a:Apparel) where s.name "Female" and (s)-[Has]->(a) return a.name; 
+
+2)match(ss.SalesStaff),(s:Section) where s.name="kids" and (ss)-[Work]->(s) return ss.namee;
